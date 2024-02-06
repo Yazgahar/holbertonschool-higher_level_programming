@@ -10,7 +10,7 @@ class Square:
         """
         Initialize a new Square instance
 
-        Parameters
+        Args:
             size (int): The size of the square
          """
         if size < 0:
