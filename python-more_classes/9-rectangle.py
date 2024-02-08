@@ -1,19 +1,22 @@
 #!/usr/bin/python3
-"""Define a rectangle"""
+"""
+Define a rectangle
+"""
 
 
 class Rectangle:
-    """
-    Initialize a new reactangle instance
-
-    Args:
-        width (int): The width of the rectangle
-        height (int): The height of the rectangle
-    """
+    """Define the rectangle attribute"""
     number_of_instances = 0
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
+        """
+        Initialize a new reactangle instance
+
+        Args:
+            width (int): The width of the rectangle
+            height (int): The height of the rectangle
+        """
         self.height = height
         self.width = width
         Rectangle.number_of_instances += 1
@@ -113,4 +116,4 @@ class Rectangle:
             Args:
             size (int): The width and height of the new rectangle
         """
-        return (cls(size, size))
+        return cls(size, size)
