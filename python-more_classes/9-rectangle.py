@@ -76,10 +76,6 @@ class Rectangle:
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
-    def __del__(self):
-        Rectangle.number_of_instances -= 1
-        print("Bye rectangle...")
-
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
@@ -101,3 +97,7 @@ class Rectangle:
             Rectangle: a new square
         """
         return cls(size, size)
+
+    def __del__(self):
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
