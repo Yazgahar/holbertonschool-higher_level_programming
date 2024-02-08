@@ -92,4 +92,12 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        """
+        class method to return a square
+
+        Args:
+            size (int, optional): size of the square. Defaults to 0.
+        Returns:
+            Rectangle: a new square
+        """
         return cls(size, size)
