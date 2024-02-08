@@ -65,16 +65,18 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return a string representation using `print_symbol`."""
         if self.width == 0 or self.height == 0:
-            return ''
+            return ""
         printed_rectangle = (str(self.print_symbol) * self.__width + '\n') \
-            * (self.__height - 1)
-        printed_rectangle += (str(self.print_symbol * self.__width))
+            * (self.__height - 1) + (str(self.print_symbol) * self.__width)
         return printed_rectangle
 
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
 
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
@@ -89,15 +91,12 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """
-        class method to return a square
+        Description:
+            Creates a new instance of Rectangle with the given size.
+            The width and height are the same (width == height == size).
+            If no value is given, size defaults to 0.
 
-        Args:
-            size (int, optional): size of the square. Defaults to 0.
         Returns:
-            Rectangle: a new square
+            A new instance of Rectangle with the given size. (Rectangle)
         """
         return cls(size, size)
-
-    def __del__(self):
-        Rectangle.number_of_instances -= 1
-        print("Bye rectangle...")
