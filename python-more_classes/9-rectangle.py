@@ -57,14 +57,21 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+        """Return the area of the rectangle"""
         return self.__width * self.__height
 
     def perimeter(self):
+        """Return the perimeter of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """
+        Return the printable representation of the rectangle
+
+        Represent the rectangle with the # character
+        """
         if self.width == 0 or self.height == 0:
             return ""
         printed_rectangle = (str(self.print_symbol) * self.__width + '\n') \
@@ -72,13 +79,23 @@ class Rectangle:
         return printed_rectangle
 
     def __repr__(self):
+        """Return the string representation of the rectangle"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
+        """Print a message for every deletion of a reclangle"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     def bigger_or_equal(rect_1, rect_2):
+        """Return the rectangle with the grater area
+
+        Args:
+            rect_1 (Rectangle): The first rectangle
+            rect_2 (Rectangle): The second rectangle
+        Raises:
+            TypeError: If either of rect_1 or rect_2 is not a rectangle
+        """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
